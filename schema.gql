@@ -1,0 +1,103 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CreateSkillDto {
+  id: ID!
+  Name: String!
+  Image: String!
+}
+
+type CreateTestimonialDto {
+  id: ID!
+  Name: String!
+  Message: String!
+  Date: String!
+}
+
+type LinkDto {
+  Name: String!
+  Url: String!
+}
+
+type TagDto {
+  Name: String!
+}
+
+type CreateProjectDto {
+  id: ID!
+  Title: String!
+  Description: String!
+  Links: [LinkDto!]!
+  Tags: [TagDto!]!
+  Image: String!
+}
+
+type BlogTagDto {
+  Name: String!
+}
+
+type CreateBlogDto {
+  id: ID!
+  Title: String!
+  Description: String!
+  Unixtimestamp: String!
+  Markdown: String!
+  Code: String!
+  Tags: [BlogTagDto!]!
+}
+
+type Query {
+  hello: String!
+  skills: [CreateSkillDto!]!
+  testimonials: [CreateTestimonialDto!]!
+  projects: [CreateProjectDto!]!
+  blogs: [CreateBlogDto!]!
+  blog(code: String!): CreateBlogDto!
+}
+
+type Mutation {
+  createSkill(input: SkillInput!): CreateSkillDto!
+  createTestimonial(input: TestimonialInput!): CreateTestimonialDto!
+  createProject(input: ProjectInput!): CreateProjectDto!
+  createBlog(input: BlogInput!): CreateBlogDto!
+}
+
+input SkillInput {
+  Name: String!
+  Image: String!
+}
+
+input TestimonialInput {
+  Name: String!
+  Message: String!
+  Date: String!
+}
+
+input ProjectInput {
+  Title: String!
+  Description: String!
+  Links: [Link!]!
+  Tags: [Tag!]!
+  Image: String!
+}
+
+input Link {
+  Name: String!
+  Url: String!
+}
+
+input Tag {
+  Name: String!
+}
+
+input BlogInput {
+  Title: String!
+  Description: String!
+  Markdown: String!
+  Tags: [BlogTag!]!
+}
+
+input BlogTag {
+  Name: String!
+}
